@@ -26,7 +26,7 @@ namespace PuzzleSolver.Classes {
             var c0 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Red, Colors.Green });
             var c1 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Green, Colors.Blue, Colors.Red, Colors.Yellow });
             var c2 = new Cube(new Colors[] { Colors.Red, Colors.Green, Colors.Blue, Colors.Yellow, Colors.Yellow, Colors.Yellow });
-            var c3 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Blue, Colors.Green, Colors.Blue });
+            var c3 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Blue, Colors.Green, Colors.Green });
             //var c0 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Red, Colors.Green });
             //var c1 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Red, Colors.Yellow });
             //var c2 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Yellow, Colors.Yellow });
@@ -58,7 +58,7 @@ namespace PuzzleSolver.Classes {
                                         for(int si3 = 0; si3 < 4; si3++) {
                                             positions[3] = cubes[3].GetPosition(li3, si3);
                                             //(li0==0) && si0==0 &&li1==2&&si1==2&& li2==1&&si2==1&&li3==4&&(si3==2)
-                                            //          0   0   1   1   1   2   4  2
+                                            //          0   0   2   2   1   1   4  2
                                             //success + 0 + 0 \ 2 + 1 \ 1 + 3 \ 4 + 1
                                             bool isSuccess = CalculateEnumPositions(positions);
 
