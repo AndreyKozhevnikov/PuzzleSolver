@@ -20,9 +20,12 @@ namespace PuzzleSolver.Classes {
 
         Colors[][] CreateLines() {
             var l0 = new Colors[] { Sides[0], Sides[1], Sides[2], Sides[3] };
-            var l1 = new Colors[] { Sides[0], Sides[5], Sides[2], Sides[4] };
-            var l2 = new Colors[] { Sides[1], Sides[5], Sides[3], Sides[4] };
-            var res = new Colors[][] { l0, l1, l2 };
+            var l1back = new Colors[] { Sides[0], Sides[3], Sides[2], Sides[1] };
+            var l2 = new Colors[] { Sides[0], Sides[5], Sides[2], Sides[4] };
+            var l3back = new Colors[] { Sides[0], Sides[4], Sides[2], Sides[5] };
+            var l4 = new Colors[] { Sides[1], Sides[5], Sides[3], Sides[4] };
+            var l5back = new Colors[] { Sides[1], Sides[4], Sides[3], Sides[5] };
+            var res = new Colors[][] { l0, l1back, l2, l3back, l4, l5back };
             return res;
         }
 

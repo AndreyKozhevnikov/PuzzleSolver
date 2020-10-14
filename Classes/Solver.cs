@@ -26,7 +26,7 @@ namespace PuzzleSolver.Classes {
             var c0 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Red, Colors.Green });
             var c1 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Green, Colors.Blue, Colors.Red, Colors.Yellow });
             var c2 = new Cube(new Colors[] { Colors.Red, Colors.Green, Colors.Blue, Colors.Yellow, Colors.Yellow, Colors.Yellow });
-            var c3 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Blue, Colors.Green, Colors.Green });
+            var c3 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Blue, Colors.Green, Colors.Blue });
             //var c0 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Red, Colors.Green });
             //var c1 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Red, Colors.Yellow });
             //var c2 = new Cube(new Colors[] { Colors.Red, Colors.Yellow, Colors.Blue, Colors.Green, Colors.Yellow, Colors.Yellow });
@@ -45,18 +45,21 @@ namespace PuzzleSolver.Classes {
 
             Colors[][] positions = new Colors[4][];
             int k = 0;
-            for(int li0 = 0; li0 < 3; li0++) { // lines 0st cube
+            for(int li0 = 0; li0 < 6; li0++) { // lines 0st cube
                 for(int si0 = 0; si0 < 4; si0++) { //sides 0st сube
                     positions[0] = cubes[0].GetPosition(li0, si0);
-                    for(int li1 = 0; li1 < 3; li1++) {
+                    for(int li1 = 0; li1 < 6; li1++) {
                         for(int si1 = 0; si1 < 4; si1++) {
                             positions[1] = cubes[1].GetPosition(li1, si1);
-                            for(int li2 = 0; li2 < 3; li2++) {
+                            for(int li2 = 0; li2 < 6; li2++) {
                                 for(int si2 = 0; si2 < 4; si2++) {
                                     positions[2] = cubes[2].GetPosition(li2, si2);
-                                    for(int li3 = 0; li3 < 3; li3++) {
+                                    for(int li3 = 0; li3 < 6; li3++) {
                                         for(int si3 = 0; si3 < 4; si3++) {
                                             positions[3] = cubes[3].GetPosition(li3, si3);
+                                            //(li0==0) && si0==0 &&li1==2&&si1==2&& li2==1&&si2==1&&li3==4&&(si3==2)
+                                            //          0   0   1   1   1   2   4  2
+                                            //success + 0 + 0 \ 2 + 1 \ 1 + 3 \ 4 + 1
                                             bool isSuccess = CalculateEnumPositions(positions);
 
                                             if(isSuccess) {
