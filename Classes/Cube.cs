@@ -13,22 +13,22 @@ namespace PuzzleSolver.Classes {
      */
 
     public class Cube {
-        public Cube(int[] sides) {
+        public Cube(Colors[] sides) {
             Sides = sides;
             Lines = CreateLines();
         }
 
-        int[][] CreateLines() {
-            var l0 = new int[] { Sides[0], Sides[1], Sides[2], Sides[3] };
-            var l1 = new int[] { Sides[0], Sides[4], Sides[2], Sides[5] };
-            var l2 = new int[] { Sides[1], Sides[4], Sides[3], Sides[5] };
-            var res = new int[][] { l0, l1, l2 };
+        Colors[][] CreateLines() {
+            var l0 = new Colors[] { Sides[0], Sides[1], Sides[2], Sides[3] };
+            var l1 = new Colors[] { Sides[0], Sides[5], Sides[2], Sides[4] };
+            var l2 = new Colors[] { Sides[1], Sides[5], Sides[3], Sides[4] };
+            var res = new Colors[][] { l0, l1, l2 };
             return res;
         }
 
-        public int[] GetPosition(int line, int index) {
+        public Colors[] GetPosition(int line, int index) {
             var currentTine = Lines[line];
-            var res = new int[4];
+            var res = new Colors[4];
             for(int i = 0; i < 4; i++) {
                 res[i] = currentTine[index];
                 index++;
@@ -39,8 +39,8 @@ namespace PuzzleSolver.Classes {
             return res;
         }
 
-        public int[] Sides { get; set; }
-        public int[][] Lines { get; set; }
+        public Colors[] Sides { get; set; }
+        public Colors[][] Lines { get; set; }
 
     }
 }
