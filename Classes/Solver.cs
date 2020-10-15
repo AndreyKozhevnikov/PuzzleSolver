@@ -57,11 +57,12 @@ namespace PuzzleSolver.Classes {
                                     for(int li3 = 0; li3 < 6; li3++) {
                                         for(int si3 = 0; si3 < 4; si3++) {
                                             positions[3] = cubes[3].GetPosition(li3, si3);
-                                            //(li0==0) && si0==0 &&li1==2&&si1==2&& li2==1&&si2==1&&li3==4&&(si3==2)
-                                            //          0   0   2   2   1   1   4  2
-                                            //success + 0 + 0 \ 2 + 1 \ 1 + 3 \ 4 + 1
                                             bool isSuccess = CalculateEnumPositions(positions);
-
+                                            /*YGGR
+                                              GBRY
+                                              RYBG 
+                                              BRYB
+                                            */
                                             if(isSuccess) {
                                                 var message = string.Format("success + {0} + {1} \\ {2} + {3} \\ {4} + {5} \\ {6} + {7}", li0, si0, li1, si1, li2, si2, li3, si3);
                                                 Console.WriteLine(message);
