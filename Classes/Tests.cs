@@ -51,6 +51,32 @@ namespace PuzzleSolver.Classes {
             //assert
             Assert.Throws<Exception>(delegate { s.CalculateEnumPosition(enumData); });
         }
+        [Test]
+        public void ConvertPositionToStringTest() {
+            //arrange
+            var s = new Solver();
+            Colors[] enumData = new Colors[] { Colors.Blue, Colors.Blue, Colors.Red, Colors.Yellow };
+            //act
+            var res = s.ConvertPositionToString(enumData);
+            //assert
+            Assert.AreEqual("Blue,Blue,Red,Yellow", res);
+        }
+        [Test]
+        public void ConvertPositionstoStringTest() {
+            //arrange
+            var s = new Solver();
+            Colors[] enumData = new Colors[] { Colors.Blue, Colors.Blue, Colors.Red, Colors.Yellow };
+            Colors[] enumData1 = new Colors[] { Colors.Blue, Colors.Blue, Colors.Yellow, Colors.Yellow };
 
+            Colors[][] arr = new Colors[2][];
+            arr[0] = enumData;
+            arr[1] = enumData1;
+
+            //act
+            var res = s.ConvertPositionsToString(arr);
+            var expected = "Blue,Blue,Red,Yellow" + Environment.NewLine + "Blue,Blue,Yellow,Yellow";
+            //assert
+            Assert.AreEqual(expected, res);
+        }
     }
 }

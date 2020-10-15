@@ -44,6 +44,7 @@ namespace PuzzleSolver.Classes {
             //int[] position3 = new int[4];
 
             Colors[][] positions = new Colors[4][];
+            List<string> results = new List<string>();
             int k = 0;
             for(int li0 = 0; li0 < 6; li0++) { // lines 0st cube
                 for(int si0 = 0; si0 < 4; si0++) { //sides 0st сube
@@ -64,9 +65,12 @@ namespace PuzzleSolver.Classes {
                                               BRYB
                                             */
                                             if(isSuccess) {
-                                                var message = string.Format("success + {0} + {1} \\ {2} + {3} \\ {4} + {5} \\ {6} + {7}", li0, si0, li1, si1, li2, si2, li3, si3);
-                                                Console.WriteLine(message);
-                                                Console.ReadKey();
+                                                //var message = string.Format("success + {0} + {1} \\ {2} + {3} \\ {4} + {5} \\ {6} + {7}", li0, si0, li1, si1, li2, si2, li3, si3);
+                                                //Console.WriteLine(message);
+                                                //Console.ReadKey();
+
+                                                var result = ConvertPositionsToString(positions);
+                                                results.Add(result);
                                             }
                                             k++;
                                             if(k % 1000 == 0) {
@@ -85,19 +89,31 @@ namespace PuzzleSolver.Classes {
                     }
                 }
             }
+            foreach(var suc in results) {
+                Console.WriteLine(suc);
+
+                Console.WriteLine();
+                Console.WriteLine("======");
+                Console.WriteLine();
+
+            }
+            //Console.ReadKey();
             Console.ReadKey();
 
         }
-        bool CalculatePosition(int[][] positions) {
-            bool res = true;
-            for(int i = 0; i < 4; i++) {
-                var resInt = positions[0][i] + positions[1][i] + positions[2][i] + positions[3][i];
-                if(resInt != 1111) {
-                    res = false;
-                    //break;
-                }
+
+        public string ConvertPositionToString(Colors[] position) {
+            return string.Join(",", position);
+        }
+        public string ConvertPositionsToString(Colors[][] positions) {
+            List<string> res = new List<string>();
+
+            foreach(var pos in positions) {
+                var r = ConvertPositionToString(pos);
+                res.Add(r);
             }
-            return res;
+            var resString = string.Join(Environment.NewLine, res);
+            return resString;
         }
         public bool CalculateEnumPositions(Colors[][] positions) {
             for(int i = 0; i < 4; i++) {
